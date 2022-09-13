@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -34,7 +35,9 @@ android {
 
 dependencies {
 
-    implementation(AppDependencies.cacheModuleLibraries)
+    implementation(AppDependencies.remoteModuleLibraries)
+    implementation(project(mapOf("path" to ":data")))
+    kapt(AppDependencies.kaptLibraries)
     testImplementation(AppDependencies.testLibraries)
     androidTestImplementation(AppDependencies.androidTestLibraries)
 }
